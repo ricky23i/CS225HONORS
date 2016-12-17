@@ -45,6 +45,30 @@
                 :dir {:north :Not-Right
 					  :south :Doge-Temple}
                 :contents #[]}
+   :Nope-Path {:desc "Nope definitely not here"
+                :title "Nope Path"
+                :dir {:east :Not-Right}
+                :contents #[Mysterious-Crystal]}
+   :Doge-Temple {:desc "The Holy Doge Temple, here rest the sword known to hold mysterious power"
+                :title "Sacred Doge Temple"
+                :dir {:north :Wow}
+                :contents #[Doge-Sword]}
+   :Shibe-Alliance {:desc "Shibe Alliance main resistance Camp"
+                :title "Shibe Alliance"
+                :dir {:west :Much-Ruins}
+                :contents #[]}
+   :Path-of-Wow {:desc "You will protect the sacred village of Doge and all the Doge within it"
+                :title "Path of Wow"
+                :dir {:north :Shibe-Alliance}
+                :contents #[]}
+   :Forest-of-Nope {:desc "The path of blood calls to you"
+                :title "Forest of NOPE"
+                :dir {:west :Shibe-Alliance}
+                :contents #[]}
+   :So-Unknown {:desc "The path of the Doge is one must take by ones own choice"
+                :title "So Unknown"
+                :dir {:south :Shibe-Alliance}
+                :contents #[]}
    })
 
 (def adventurer
