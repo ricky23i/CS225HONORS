@@ -4,19 +4,40 @@
   (:gen-class))
 
 (def the-map
-  {:foyer {:desc "The walls are freshly painted but do not have any pictures.  You get the feeling it was just created
-for a game or something."
-           :title "in the foyer"
-           :dir {:south :grue-pen}
-           :contents #{:raw-egg}}
-   :grue-pen {:desc "It is very dark.  You are about to be eaten by a grue."
-              :title "in the grue pen"
-              :dir {:north :foyer}
-              :contents #{}}
+  {:Harambe-Memorial {:desc "The grave of the Great Harambe. All praise Harambe! "
+           :title "Great Harambe Memorial"
+           :dir {:south :Such-Path}
+           :contents #[]}
+   :Such-Path {:desc "The main path of Doge Island."
+              :title "Such Path"
+              :dir {:south :Harambe-Memorial
+					:north :Doge-Village
+					:west :Wow-Forest}
+               :contents #[Doge-Treat]}
+   :Wow-Forest {:desc "The local forest of the Doge. Rumors say a holy Doge Sword is deep within the forest"
+                :title "Wow Forst"
+                :dir {:east:Such-Path}
+                :contents #[]}
+   :Doge-Village {:desc "The Doge Village where all doge live and prosper"
+                :title "Doge Village"
+                :dir {:south:Such-Path}
+                :contents #[]}
+   :Much-Ruins {:desc "Ruins of an Ancient city. There stands a wall with a missing jew in the middle."
+                :title "Much Ruins"
+                :dir {:west:Such-Path}
+                :contents #[Doge-Coin]}
+   :So-Lost {:desc "Such forest, very lost, Wow"
+                :title "Wow Forest:So Lost"
+                :dir {:north:Wow-Forest}
+                :contents #[Doge-Toy]}
+   :Very-Close {:desc "Ruins of an Ancient city. There stands a wall with a missing jew in the middle."
+                :title "Wow Forest:Very Close"
+                :dir {:east:Wow-Forest}
+                :contents #[]}
    })
 
 (def adventurer
-  {:location :foyer
+  {:location : Harambe-Memorial
    :inventory #{}
    :tick 0
    :seen #{}})
