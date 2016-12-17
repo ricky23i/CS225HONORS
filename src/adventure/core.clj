@@ -16,23 +16,34 @@
                :contents #[Doge-Treat]}
    :Wow-Forest {:desc "The local forest of the Doge. Rumors say a holy Doge Sword is deep within the forest"
                 :title "Wow Forst"
-                :dir {:east:Such-Path}
+                :dir {:east :Such-Path}
                 :contents #[]}
    :Doge-Village {:desc "The Doge Village where all doge live and prosper"
                 :title "Doge Village"
-                :dir {:south:Such-Path}
+                :dir {:south :Such-Path}
                 :contents #[]}
    :Much-Ruins {:desc "Ruins of an Ancient city. There stands a wall with a missing jew in the middle."
                 :title "Much Ruins"
-                :dir {:west:Such-Path}
+                :dir {:west :Such-Path}
                 :contents #[Doge-Coin]}
    :So-Lost {:desc "Such forest, very lost, Wow"
                 :title "Wow Forest:So Lost"
-                :dir {:north:Wow-Forest}
+                :dir {:north :Wow-Forest}
                 :contents #[Doge-Toy]}
    :Very-Close {:desc "Ruins of an Ancient city. There stands a wall with a missing jew in the middle."
                 :title "Wow Forest:Very Close"
-                :dir {:east:Wow-Forest}
+                :dir {:east :Wow-Forest
+					  :south :Not-Right}
+                :contents #[]}
+   :Not-Right {:desc "Deep within the Wow Forest. You can see a bright light towards the right side of the forest"
+                :title "Wow Forest: Definitely Not Right"
+                :dir {:north :Very-Close
+					  :south :Wow}
+                :contents #[]}
+   :Wow {:desc "Doge Temple is seen from here. Just north of Wow Forest: Wow"
+                :title "Wow Forest: Wow"
+                :dir {:north :Not-Right
+					  :south :Doge-Temple}
                 :contents #[]}
    })
 
