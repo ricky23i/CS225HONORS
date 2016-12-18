@@ -111,6 +111,15 @@
 						  (update-in [:inventory] #(conj % :Doge-Shield))
 						  )))))))
 
+(defn pick-up [player]
+	(let [location](player :location)
+		(cond
+		(= location :Such-Path)
+			(do 
+				(if(not (contains? (player :inventory)Doge-Treat))
+				(->player (assoc-in [:location] location)
+						  (update-in [:inventory] #(conj % :Doge-Coin))))))))
+						  
 (defn respond [player command]
   (match command
          [:look] (update-in player [:seen] #(disj % (-> player :location)))
