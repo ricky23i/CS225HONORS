@@ -98,26 +98,41 @@
           player)
       (assoc-in player [:location] dest))))
 
-(defn tock [player]
-  (update-in player [:tick] inc))
-
 (defn respond [player command]
   (match command
          [:look] (update-in player [:seen] #(disj % (-> player :location)))
-         (:or [:n] [:north] ) (go :north player)
+         [:north] (go :north player)
          [:south] (go :south player)
+		 [:east] (go :east player)
+		 [:west] (go :west player)
+		 [:grab] (go :grab player)
+		 [:exit] (exit)
 
          _ (do (println "I don't understand you.")
                player)
 
          )) 
+(defn exit []
+   (println "Bye.")
+   (System/exit 0))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
+  (Println "Welcome to the Country of Doge!")
+  (Println "War is upon the Country of Doge as Harambe has been assassinated")
+  (Println "Head to Harambe Memorial to see what the sages have to say")
   (loop [local-map the-map
          local-player adventurer]
+	(let [location(local-player :location)]
+		(if(= location :Shibe-Alliance)
+		(do 
+			(Println "The united Shibe forces camp seems to be in bad shape good thing I have come prepared")
+			))
+		(if(= location :Harambe-Memorial)
+			(do 
+				(Println "Sage: Go on forth and join the Shibe Alliance in battle. Prepare yourself by collecting the Doge Shield and Doge Sword. The holy sword is to be found deep in the forsest. Good Luck!")
+				))
     (let [pl (status local-player)
           _  (println "What do you want to do?")
           command (read-line)]
-      (recur local-map (respond pl (to-keywords command))))))
+      (recur local-map (respond pl (to-keywords command)))))))
