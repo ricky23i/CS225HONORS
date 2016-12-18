@@ -6,25 +6,29 @@
 (def the-map
   {:Harambe-Memorial {:desc "The grave of the Great Harambe. All praise Harambe! "
            :title "Great Harambe Memorial"
-           :dir {:south :Such-Path}
+           :dir {:north :Such-Path}
            :contents #[]}
    :Such-Path {:desc "The main path of Doge Island."
               :title "Such Path"
               :dir {:south :Harambe-Memorial
 					:north :Doge-Village
-					:west :Wow-Forest}
+					:west :Wow-Forest
+					:east :Much-Ruins}
                :contents #[Doge-Treat]}
    :Wow-Forest {:desc "The local forest of the Doge. Rumors say a holy Doge Sword is deep within the forest"
                 :title "Wow Forst"
-                :dir {:east :Such-Path}
+                :dir {:east :Such-Path
+					  :west :Very-Close
+					  :south :So-Lost}
                 :contents #[]}
    :Doge-Village {:desc "The Doge Village where all doge live and prosper"
                 :title "Doge Village"
                 :dir {:south :Such-Path}
-                :contents #[]}
+                :contents #[Doge-Shield]}
    :Much-Ruins {:desc "Ruins of an Ancient city. There stands a wall with a missing jew in the middle."
                 :title "Much Ruins"
-                :dir {:west :Such-Path}
+                :dir {:west :Such-Path
+					  :east :Shibe-Alliance}
                 :contents #[Doge-Coin]}
    :So-Lost {:desc "Such forest, very lost, Wow"
                 :title "Wow Forest:So Lost"
@@ -38,7 +42,7 @@
    :Not-Right {:desc "Deep within the Wow Forest. You can see a bright light towards the right side of the forest"
                 :title "Wow Forest: Definitely Not Right"
                 :dir {:north :Very-Close
-					  :south :Wow}
+					  :west :Nope-Path}
                 :contents #[]}
    :Wow {:desc "Doge Temple is seen from here. Just north of Wow Forest: Wow"
                 :title "Wow Forest: Wow"
@@ -56,25 +60,24 @@
    :Shibe-Alliance {:desc "Shibe Alliance main resistance Camp"
                 :title "Shibe Alliance"
                 :dir {:west :Much-Ruins}
-                :contents #[]}
+                :contents #[Doge-Tag]}
    :Path-of-Wow {:desc "You will protect the sacred village of Doge and all the Doge within it"
                 :title "Path of Wow"
                 :dir {:north :Shibe-Alliance}
-                :contents #[]}
+                :contents #[Light-Essence]}
    :Forest-of-Nope {:desc "The path of blood calls to you"
                 :title "Forest of NOPE"
                 :dir {:west :Shibe-Alliance}
-                :contents #[]}
+                :contents #[Dark-Essence]}
    :So-Unknown {:desc "The path of the Doge is one must take by ones own choice"
                 :title "So Unknown"
                 :dir {:south :Shibe-Alliance}
-                :contents #[]}
+                :contents #[Colorful-Essence]}
    })
 
 (def adventurer
-  {:location : Harambe-Memorial
+  {:location : Doge-Village
    :inventory #{}
-   :tick 0
    :seen #{}})
 
 (defn status [player]
