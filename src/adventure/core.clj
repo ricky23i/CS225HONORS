@@ -98,9 +98,24 @@
           player)
       (assoc-in player [:location] dest))))
 
+(defn talk [player]
+(let [location](player :location)
+	(cond
+		(=location Doge-Village)
+			(do
+			   (Println "Store Keeper: Trade you a Doge Shield for a one of them fun Doge Toys")
+				(if(contains? (player :inventory):Doge-Toy)
+				(do 
+				(Println "Store Keeper: OH YES! Here a Doge Shield. let me know if you find more")
+				(->player (assoc-in [:location] location)
+						  (update-in [:inventory] #(conj % :Doge-Shield))
+						  )))))))
+
 (defn respond [player command]
   (match command
          [:look] (update-in player [:seen] #(disj % (-> player :location)))
+		 [:pick-up] (pick-up player)
+		 [:talk] (talk player)
          [:north] (go :north player)
          [:south] (go :south player)
 		 [:east] (go :east player)
