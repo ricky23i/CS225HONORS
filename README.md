@@ -4,4 +4,4 @@ Such Wow, Much Awesome, Many adventure, So Fun, Very Doge
 
 ## Background
 
-Among all the Doge one stands to unite all memes. Will you be able to guide the chosen Doge through the deadly maze of memes?
+The chosen Doge sets out to join the Shibe-alliance! help him get ready!
